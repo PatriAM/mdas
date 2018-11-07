@@ -51,7 +51,7 @@ func vote(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, state)
 	}
 
-	state.Votes[topic.Topic] = state.Votes[topic.Topic] + 5
+	state.Votes[topic.Topic] = state.Votes[topic.Topic] + 1
 	return publishState(c)
 }
 
