@@ -54,4 +54,5 @@ if build  > log 2> error; then
     fi    
 else
     echo "FAILED"
+    exit 1
 fi

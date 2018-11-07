@@ -1,0 +1,14 @@
+# cd .; git clone https://github.com/labstack/echo /root/go/src/github.com/labstack/echo
+Cloning into '/root/go/src/github.com/labstack/echo'...
+fatal: unable to access 'https://github.com/labstack/echo/': Could not resolve host: github.com
+package github.com/labstack/echo: exit status 128
+# cd .; git clone https://github.com/gorilla/websocket /root/go/src/github.com/gorilla/websocket
+Cloning into '/root/go/src/github.com/gorilla/websocket'...
+fatal: unable to access 'https://github.com/gorilla/websocket/': Could not resolve host: github.com
+package github.com/gorilla/websocket: exit status 128
+main.go:7:2: cannot find package "github.com/gorilla/websocket" in any of:
+	/usr/lib/go-1.10/src/github.com/gorilla/websocket (from $GOROOT)
+	/root/go/src/github.com/gorilla/websocket (from $GOPATH)
+helper.go:6:2: cannot find package "github.com/labstack/echo" in any of:
+	/usr/lib/go-1.10/src/github.com/labstack/echo (from $GOROOT)
+	/root/go/src/github.com/labstack/echo (from $GOPATH)
