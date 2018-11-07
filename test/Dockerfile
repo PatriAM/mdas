@@ -1,0 +1,8 @@
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install -y curl jq
+
+COPY test.sh .
+RUN chmod +x test.sh
+
+ENTRYPOINT [ "bash","-c", "./test.sh" ]
+

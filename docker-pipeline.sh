@@ -2,13 +2,20 @@
 set -e
 
 image='votingapp'
-#imageBuilder='votingapp-builder'
 myAliasDocker=${REGISTRY:-'patristark'}
+network="votingapp-network"
 
-#docker build -t $imageBuilder .
-#docker run $imageBuilder bash -c "./pipeline.sh"
+docker network create $network || true
 
+#BUILD
 docker build -t $myAliasDocker/$image ./src/votingapp
+
+#INTEGRATION TEST
 docker rm -f $image || true
-docker run --name $image -d -p 8085:8080 $myAliasDocker/$image
+docker run --name $image -d --network $network $myAliasDocker/$image
+
+docker build -t votingapp-test ./test
+docker run --rm --network $network VOTING_URL="http://$image:8080/vote" votingapp-test
+
+#DELIVERY
 docker push $myAliasDocker/$image

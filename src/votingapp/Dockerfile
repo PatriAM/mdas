@@ -1,6 +1,6 @@
 #builder
-FROM ubuntu:18.04 AS builder
-RUN apt-get update && apt-get install -y git golang curl jq 
+FROM golang:stretch AS builder
+RUN apt-get update && apt-get install -y git
 
 #reutilizar dependencias
 COPY deps.sh .
