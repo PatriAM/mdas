@@ -44,7 +44,7 @@ test(){
     fi        
  }
 
-if build  > log 2>error; then
+if build  > log 2> error; then
     echo "Build completed"
     run
     if test; then
