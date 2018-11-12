@@ -18,17 +18,19 @@ def http_client(method, data={}):
 def test():
     http_client('POST', {"topics":["bash","python","go"]})
     options = ["bash", "go", "bash", "ruby", "python"]
-    expected_winner = "bash"
+    expectedWinner = "bash"
 
     for option in options:
         t = {"topic": option}
         http_client('PUT', t)
 
+    
+
     winner_response = http_client('DELETE')
     winner = winner_response["winner"]
-    if winner == expected_winner:
-        print("TEST RESULT: OK")
+    if winner == expectedWinner:
+        print("TEST PYTHON RESULT: OK")
     else:
-        print("TEST RESULT: Fail")
+        print("TEST PYTHON RESULT: FAIL")
 
 test()

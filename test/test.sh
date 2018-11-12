@@ -21,9 +21,9 @@
     winner=$(http_client DELETE | jq -r '.winner')
 
     if [ "$expectedWinner" = "$winner" ]; then
+        echo TEST BASH RESULT: OK
         exit 0
-        echo OK
     else 
-        echo FAILED 
+        echo TEST BASH RESULT: FAIL 
         exit 1
-    fi   
+    fi  
