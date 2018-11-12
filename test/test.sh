@@ -1,5 +1,6 @@
 #bin/bash
 
+    
     http_client() {
         curl --url 'http://votingapp:8080/vote' \
         --request $1 \
@@ -21,7 +22,7 @@
 
     if [ "$expectedWinner" = "$winner" ]; then
         exit 0
-        echo
+        echo OK
     else 
         echo FAILED 
         exit 1

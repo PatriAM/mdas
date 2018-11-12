@@ -15,7 +15,7 @@ docker rm -f $image || true
 docker run --name $image -d --network $network $myAliasDocker/$image
 
 docker build -t votingapp-test ./test
-docker run --rm --network $network VOTING_URL="http://$image:8080/vote" votingapp-test
+docker run --rm --network $network -e VOTING_URL="http://$image:8080/vote" votingapp-test
 
 #DELIVERY
 docker push $myAliasDocker/$image
